@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, enableProdMode } from '@angular/core';
 
 @Component ({
   selector: 'app-user',
@@ -7,5 +7,27 @@ import { Component } from '@angular/core';
 })
 
 export class UserComponent {
+  // Properties
+  firstName = 'David';
+  lastName = 'Jones';
+  age = 45;
 
+  // Methods
+  constructor() {
+
+    // console.log('Hello user...');
+   // this.sayHello();
+  console.log(this.age);
+   this.hasBirthday();
+   console.log(this.age);
+  }
+
+  sayHello() {
+    console.log(`Hello ${this.firstName}`);
+  }
+
+  hasBirthday() {
+    this.age += 1;
+
+  }
 }
