@@ -11,23 +11,18 @@ export class UserComponent {
   firstName = 'David';
   lastName = 'Jones';
   age = 45;
+  address = {
+    street: '100 Park Lane',
+    city: 'Beford',
+    county: 'Bedfordshire'
+  };
 
   // Methods
   constructor() {
 
-    // console.log('Hello user...');
-   // this.sayHello();
-  console.log(this.age);
-   this.hasBirthday();
-   console.log(this.age);
   }
 
-  sayHello() {
-    console.log(`Hello ${this.firstName}`);
-  }
-
-  hasBirthday() {
-    this.age += 1;
-
+  showAge() {
+    return this.age + 10;
   }
 }
