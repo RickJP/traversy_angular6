@@ -1,4 +1,4 @@
-import { Component, enableProdMode } from '@angular/core';
+import { Component, enableProdMode, OnInit } from '@angular/core';
 import { User } from '../../models/User';
 
 @Component ({
@@ -7,13 +7,17 @@ import { User } from '../../models/User';
   styleUrls: ['./user.component.css']
 })
 
-export class UserComponent {
+export class UserComponent implements OnInit {
   // Properties
   user: User;
 
   // Methods
   constructor() {
-    this.user = {
+  }
+
+
+ngOnInit() {
+  this.user = {
       firstName: 'Jenny',
       lastName: 'Harvey',
       age: 31,
@@ -23,8 +27,10 @@ export class UserComponent {
         state: 'MA'
       }
     };
-  }
 }
+
+}
+
 
 
 
