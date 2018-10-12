@@ -11,11 +11,15 @@
         <img class="img-fluid" [src]="user.image" alt="">
       </div>
       <div class="col-sm-8">
-        <h3 [ngStyle]="currentStyles">{{ user.firstName }}  {{  user.lastName }}</h3>
+        <h3 [ngStyle]="currentStyles">{{ user.firstName | uppercase }}  {{  user.lastName | lowercase }}</h3>
         <ul class="list-group" *ngIf="showExtended && user.age && user.address">
           <li class="list-group-item">Age: {{ user.age }}</li>
           <li class="list-group-item"> Address: {{ user.address.street }}  {{ user.address.city }}, 
             {{ user.address.state }}</li>
+            <li class="list-group-item">Balance: {{ user.balance | currency:"GBP":"code" }} until {{ 0.3 | percent }}</li>
+            <li class="list-group-item">Joined: {{
+              user.registered | date:"mm-dd-yy" }}</li>
+              <li class="list-group-item" ngNonBindable><pre>{{ 5 | number:"1.2"}}</pre></li>
         </ul>
       </div>
     </div>
