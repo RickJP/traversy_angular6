@@ -15,7 +15,7 @@ export class UsersComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {
-    this.showExtended = true;
+    this.showExtended = false;
     this.loaded = false;
 
     this.users = [
@@ -73,5 +73,9 @@ export class UsersComponent implements OnInit {
 
   addUser(user: User) {
     this.users.push(user);
+  }
+
+  fireEvent(e) {
+    console.log(e.type);
   }
 }
