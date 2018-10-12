@@ -8,6 +8,39 @@ import { Component, enableProdMode } from '@angular/core';
 
 export class UserComponent {
   // Properties
+  user: User;
+
+  // Methods
+  constructor() {
+    this.user = {
+      firstName: 'Jenny',
+      lastName: 'Harvey',
+      age: 31,
+      address: {
+        street: '56 King Street',
+        city: 'Boston',
+        state: 'MA'
+      }
+    };
+  }
+}
+
+
+interface User {
+  firstName: string;
+  lastName: string;
+  age: number;
+  address: {
+    street: string,
+    city: string,
+    state: string
+  };
+
+
+/*
+
+xport class UserComponent {
+  // Properties
   personId;
   firstName: string;
   lastName: string;
@@ -56,3 +89,7 @@ export class UserComponent {
     return num1 * num2;
   }
 }
+
+
+
+*/
