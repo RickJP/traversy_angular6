@@ -7,15 +7,29 @@ import { User } from '../../models/User';
   styleUrls: ['./users.component.css']
 })
 export class UsersComponent implements OnInit {
+
+  user: User = {
+    firstName: '',
+    lastName: '',
+    age: null,
+    address: {
+      street: '',
+      city: '',
+      state: ''
+    }
+  };
+
+
   users: User[];
   showExtended: boolean;
   loaded: boolean;
-  enableAdd = true;
+  enableAdd = false;
+  showUserForm = false;
 
   constructor() {}
 
   ngOnInit() {
-    this.showExtended = false;
+    this.showExtended = true;
     this.loaded = false;
 
     this.users = [
@@ -29,7 +43,8 @@ export class UsersComponent implements OnInit {
           state: 'MA'
         },
         isActive: true,
-        registered: new Date('01/02/2018 09:34:23')
+        registered: new Date('01/02/2018 09:34:23'),
+        hide: true
       },
       {
         firstName: 'Dave',
@@ -41,7 +56,8 @@ export class UsersComponent implements OnInit {
           state: 'NA'
         },
         isActive: false,
-        registered: new Date('01/02/2015 12:34:11')
+        registered: new Date('01/02/2015 12:34:11'),
+         hide: true
       },
       {
         firstName: 'Dave',
@@ -53,7 +69,8 @@ export class UsersComponent implements OnInit {
           state: 'NA'
         },
         isActive: true,
-        registered: new Date('11/17/2012 18:48:01')
+        registered: new Date('11/17/2012 18:48:01'),
+         hide: true
       },
       {
         firstName: 'Claire',
@@ -65,17 +82,44 @@ export class UsersComponent implements OnInit {
           state: 'FL'
         },
         isActive: true,
-        registered: new Date('04/23/2011 16:34:23')
+        registered: new Date('04/23/2011 16:34:23'),
+         hide: true
       }
     ];
     this.loaded = true;
   }
 
-  addUser(user: User) {
-    this.users.push(user);
+  addUser() {
+    this.user.isActive = true;
+    this.user.registered = new Date();
+
+    this.users.unshift(this.user);
+
+    this.user = {
+      firstName: '',
+      lastName: '',
+      age: null,
+      address: {
+        street: '',
+        city: '',
+        state: ''
+      }
+    };
+
+  }
+
+  toggeHide(user: User) {
+    user.hide = !user.hide;
+  }
+
+  onSubmit(e) {
+    console.log(123);
+
+    e.preventDefault();
   }
 
   fireEvent(e) {
     console.log(e.type);
+    console.log(e.target.value);
   }
 }
