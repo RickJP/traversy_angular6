@@ -20,12 +20,7 @@ ngOnInit() {
   this.user = {
       firstName: 'Jenny',
       lastName: 'Harvey',
-      age: 31,
-      address: {
-        street: '56 King Street',
-        city: 'Boston',
-        state: 'MA'
-      }
+      email: ''
     };
 }
 
