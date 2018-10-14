@@ -57,7 +57,7 @@ export class PostsComponent implements OnInit {
           if (post.id === cur.id) {
             this.posts.splice(index, 1);
           }
-    });
+        });
       });
     }
   }
